@@ -53,7 +53,7 @@ def get_random_wikipedia_article():
                 % articletitle
             failed = True
             continue
-        print 'downloaded %s. parsing...' % articletitle
+        # print 'downloaded %s. parsing...' % articletitle
 
         try:
             all = re.search(r'<text.*?>(.*)</text', all, flags=re.DOTALL).group(1)
@@ -102,7 +102,7 @@ def get_random_wikipedia_articles(n):
     WikiThread.articlenames = list()
     wtlist = list()
     for i in range(0, n, maxthreads):
-        print 'downloaded %d/%d articles...' % (i, n)
+        # print 'downloaded %d/%d articles...' % (i, n)
         for j in range(i, min(i+maxthreads, n)):
             wtlist.append(WikiThread())
             wtlist[len(wtlist)-1].start()
