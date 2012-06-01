@@ -228,7 +228,8 @@ class OnlineLDA:
         # we need to update lambda.
         (gamma, sstats) = self.do_e_step(docs)
         # Estimate held-out likelihood for current values of lambda.
-        bound = self.approx_bound(docs, gamma)
+        ## bound = self.approx_bound(docs, gamma)
+        bound = 0
         # Update lambda based on documents.
         self._lambda = self._lambda * (1-rhot) + \
             rhot * (self._eta + self._D * sstats / len(docs))
@@ -236,7 +237,7 @@ class OnlineLDA:
         self._expElogbeta = n.exp(self._Elogbeta)
         self._updatect += 1
 
-        return(gamma, bound)
+        return (gamma, bound)
 
     def approx_bound(self, docs, gamma):
         """

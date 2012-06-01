@@ -97,7 +97,7 @@ def get_random_wikipedia_articles(n):
     of their names and contents. Much faster than calling
     get_random_wikipedia_article() serially.
     """
-    maxthreads = 8
+    maxthreads = n / 2
     WikiThread.articles = list()
     WikiThread.articlenames = list()
     wtlist = list()
